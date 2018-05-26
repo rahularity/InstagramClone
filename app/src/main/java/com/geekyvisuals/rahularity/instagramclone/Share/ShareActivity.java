@@ -1,4 +1,4 @@
-package com.geekyvisuals.rahularity.instagramclone;
+package com.geekyvisuals.rahularity.instagramclone.Share;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -8,13 +8,14 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.geekyvisuals.rahularity.instagramclone.R;
 import com.geekyvisuals.rahularity.instagramclone.utils.BottomNavigationViewHelper;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
-public class ProfileActivity extends AppCompatActivity {
-    private static final String TAG = "ProfileActivity";
-    public static final int ACTIVITY_NUM = 4;
-    private Context context = ProfileActivity.this;
+public class ShareActivity extends AppCompatActivity {
+    private static final String TAG = "ShareActivity";
+    public static final int ACTIVITY_NUM = 2;
+    private Context context = ShareActivity.this;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

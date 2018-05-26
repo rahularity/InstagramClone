@@ -1,13 +1,17 @@
-package com.geekyvisuals.rahularity.instagramclone;
+package com.geekyvisuals.rahularity.instagramclone.Home;
 
 import android.content.Context;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.geekyvisuals.rahularity.instagramclone.R;
 import com.geekyvisuals.rahularity.instagramclone.utils.BottomNavigationViewHelper;
+import com.geekyvisuals.rahularity.instagramclone.utils.SectionsPagerAdapter;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
 public class HomeActivity extends AppCompatActivity {
@@ -23,7 +27,29 @@ public class HomeActivity extends AppCompatActivity {
         Log.d(TAG, "onCreate: starting.");
 
         setupBottomNavigationView();
+        setUpViewPager();
     }
+
+    /**
+     * Setting up ViewPager to the camera, home, messages fragments
+     */
+    private void setUpViewPager(){
+        SectionsPagerAdapter adapter = new SectionsPagerAdapter(getSupportFragmentManager());
+        adapter.addFragments(new CameraFragment()); //index 0
+        adapter.addFragments(new HomeFragment()); //index 1
+        adapter.addFragments(new MessagesFragment()); //index 2
+
+        ViewPager viewPager = (ViewPager)findViewById(R.id.container);
+        viewPager.setAdapter(adapter);
+
+        TabLayout tabs = (TabLayout)findViewById(R.id.tabs);
+        tabs.setupWithViewPager(viewPager);
+        tabs.getTabAt(0).setIcon(R.drawable.ic_camera);
+        tabs.getTabAt(1).setIcon(R.drawable.ic_home);
+        tabs.getTabAt(2).setIcon(R.drawable.ic_messages);
+
+    }
+
 
 
     /**
